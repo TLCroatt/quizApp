@@ -21,6 +21,10 @@ p {
     padding: 5px, 10px;
 }
 
+.btn:hover {
+    background-color: #9370DB;
+}
+
 .answer-buttons {
     display: grid;
     gap: 10px;
