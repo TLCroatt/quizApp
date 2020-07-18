@@ -3,12 +3,14 @@ var answerButton = document.querySelector(".answer-buttons");
 var questionContainer = document.getElementById("question-container");
 var questionElement = document.getElementById("question");
 var answerButtonsElement = document.querySelector(".answer-buttons");
-
+var currentQuestionIndex = 0;
 let randomQuestion
-let currentQuestionIndex
+
 
 startButton.addEventListener("click", startQuiz);
 answerButton.addEventListener("click", selectAnswer);
+
+questionContainer.classList.add("hide");
 
 function startQuiz() {
     console.log("Started")
@@ -20,9 +22,6 @@ function startQuiz() {
     function startTimer() {}
 }
 
-function setNextQuestion() {
-    //showQuestion(randomQuestion[currentQuestionIndex]);
-}   
 
 function showQuestion() {
     questionElement.innerText = questions[currentQuestionIndex].question;
@@ -43,9 +42,20 @@ function selectAnswer(event) {
         console.log(event.target.id);
     }
 
-    if (event.target.id === questions.choices.answerIdex) {
-        document.getElementById(".reaction").innerText("Correct")
+    var choiceId = event.target.id;
+    var choiceIndex = questions.choices;
+
+    var questionsObj = question[choiceIndex];
+
+    if (choiceId === questionsObj.correct) {
+        //correct
+    } else {
+        //wrong - dock time/score
     }
+    currentQuestionIndex ++
+    
+    //call showQuestion func
+
     
     //grab id from the event and compare w/ the answer index
 //if/else for correct or wrong answer
@@ -61,7 +71,8 @@ var questions = [
             { text: "Zero or more characters written inside quotes"},
             { text: "A special variable that can hold mutiple values"},
             { text: "A tired ghost"}
-        ], answerIndex: 0
+        ], correct: 0
             
     }
+
 ];
