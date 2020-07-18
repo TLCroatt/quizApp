@@ -34,3 +34,9 @@ p {
 .hide {
     display: none;
 }
+
+.reaction {
+    font-size: 20px;
+    color: gray;
+    
+}

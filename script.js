@@ -42,6 +42,10 @@ function selectAnswer(event) {
     if (event.target.id === 0 || event.target.id) {
         console.log(event.target.id);
     }
+
+    if (event.target.id === questions.choices.answerIdex) {
+        document.getElementById(".reaction").innerText("Correct")
+    }
     
     //grab id from the event and compare w/ the answer index
 //if/else for correct or wrong answer
