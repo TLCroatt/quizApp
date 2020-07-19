@@ -4,13 +4,26 @@ var questionContainer = document.getElementById("question-container");
 var questionElement = document.getElementById("question");
 var answerButtonsElement = document.querySelector(".answer-buttons");
 var currentQuestionIndex = 0;
+
 let randomQuestion
 
+questionContainer.classList.add("hide");
+
+let questions = [
+    {
+        question: "What is a boolean?",
+        choiceA: "A data type that can only have one of two values",
+        choiceB: "Zero or more characters written inside quotes",
+        choiceC: "A special variable that can hold mutiple values",
+        choiceD: "A tired ghost",
+        correct: "A"   
+    },
+
+];
 
 startButton.addEventListener("click", startQuiz);
 answerButton.addEventListener("click", selectAnswer);
 
-questionContainer.classList.add("hide");
 
 function startQuiz() {
     console.log("Started")
@@ -22,18 +35,15 @@ function startQuiz() {
     function startTimer() {}
 }
 
+let lastQuestionIndex = questions.length - 1;
 
 function showQuestion() {
-    questionElement.innerText = questions[currentQuestionIndex].question;
-    questions[currentQuestionIndex].choices.forEach((choices, choiceIndex) => {
-        var choiceBtn = document.getElementById(choiceIndex);
-        choiceBtn.innerText = choices.text;
-        choiceBtn.classList.add("choiceBtn");
-        if (choices.correct) {
-            choiceBtn.dataset.correct = choices.correct;
-        }
-        
-    })
+    var q = questions[currentQuestionIndex];
+    question.innerText = q.question;
+    choiceA.innerText = q.choiceA;
+    choiceB.innerText = q.choiceB;
+    choiceC.innerText = q.choiceC;
+    choiceD.innerText = q.choiceD;
 }
 
 function selectAnswer(event) {
@@ -44,7 +54,6 @@ function selectAnswer(event) {
 
     var choiceId = event.target.id;
     var choiceIndex = questions.choices;
-
     var questionsObj = question[choiceIndex];
 
     if (choiceId === questionsObj.correct) {
@@ -63,16 +72,3 @@ function selectAnswer(event) {
 //game ends if time is up or reach last question
 }
 
-var questions = [
-    {
-        question: "What is a boolean?",
-        choices: [
-            { text: "A data type that can only have one of two values"},
-            { text: "Zero or more characters written inside quotes"},
-            { text: "A special variable that can hold mutiple values"},
-            { text: "A tired ghost"}
-        ], correct: 0
-            
-    }
-
-];
