@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="conatiner">
-        <div id = "question-container" class = "hide"></div>
+        <div id = "question-container" style = "display: none;">
             <p id = "question">Question</p>
 
             <div class = "answer-buttons">
@@ -17,11 +17,12 @@
                 <button class = "btn" id = "C" onclick = "selectAnswer"(C)>Answer 3</button>
                 <button class = "btn" id = "D" onclick = "selectAnswer"(D)>Answer 4</button>
             </div>
+        </div>
         <div class = "start-btn" id = "start-btn">
             <button class = "btn">"Start Quiz"</button>
         </div>
-        <hr>
-        <div class = "reaction"></div>
+    <hr>
+    <div class = "reaction"></div>
     </div>
     <script src = "script.js"></script>
 </body>

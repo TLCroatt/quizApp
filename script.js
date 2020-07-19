@@ -12,7 +12,6 @@ var currentQuestionIndex = 0;
 let score = 0;
 //let randomQuestion
 
-questionContainer.classList.add("hide");
 
 let questions = [
     {
@@ -62,7 +61,7 @@ function startQuiz() {
     startButton.classList.add("hide");
     //randomQuestion = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
-    questionContainer.classList.remove("hide");
+    questionContainer.style.display = "block";
     showQuestion();
     function startTimer() {}
 }
@@ -83,7 +82,7 @@ function selectAnswer(answer) {
     if (event.target.id === 0 || event.target.id) {
         console.log(event.target.id);
     }
-    if (questions[currentQuestionIndex].correct == answer) {
+    if (answer == questions[currentQuestionIndex].correct) {
         //score ++
         alert("Correct!")
     } else {
@@ -95,13 +94,11 @@ function selectAnswer(answer) {
         count = 0;
         currentQuestionIndex ++;
         showQuestion()
+    } else {
+        endGame()
     }
-    //call showQuestion func
-
-    
-    //grab id from the event and compare w/ the answer index
-//if/else for correct or wrong answer
-//update the currentQuestionIndex to next question
-//game ends if time is up or reach last question
 }
 
+function endGame() {
+
+}
