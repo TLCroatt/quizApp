@@ -24,7 +24,33 @@ let questions = [
         correct: "A"   
     },
 
-    
+    {
+        question: "A JavaScript file has a file extension of",
+        choiceA: ".html",
+        choiceB: ".script",
+        choiceC: ".js",
+        choiceD: ".javascript",
+        correct: "C",
+    },
+
+    {
+        question: "A function associated with an object is called",
+        choiceA: "function",
+        choiceB: "parameter",
+        choiceC: "array",
+        choiceD: "method",
+        correct: "D",
+    },
+
+    {
+        question: "Which function is used to parse a string into an integer?",
+        choiceA: "Int.Parse",
+        choiceB: "Parse.Int",
+        choiceC: "function(parse).int",
+        choiceD: "parse(int)",
+        correct: "A"
+    }
+
 ];
 
 startButton.addEventListener("click", startQuiz);
