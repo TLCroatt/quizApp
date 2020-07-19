@@ -46,23 +46,24 @@ function showQuestion() {
     choiceD.innerText = q.choiceD;
 }
 
-function selectAnswer(event) {
+function selectAnswer(answer) {
     //makes sure that nothing registers unless it's a button click
     if (event.target.id === 0 || event.target.id) {
         console.log(event.target.id);
     }
-
-    var choiceId = event.target.id;
-    var choiceIndex = questions.choices;
-    var questionsObj = question[choiceIndex];
-
-    if (choiceId === questionsObj.correct) {
-        //correct
+    if (questions[currentQuestionIndex].correct == answer) {
+        score ++
+        alert("Correct!")
     } else {
+        score -1
+        alert("Wrong!")
         //wrong - dock time/score
     }
-    currentQuestionIndex ++
-    
+    if (currentQuestionIndex < lastQuestionIndex) {
+        count = 0;
+        currentQuestionIndex ++;
+        showQuestion()
+    }
     //call showQuestion func
 
     
