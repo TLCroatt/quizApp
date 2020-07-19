@@ -8,6 +8,12 @@ body {
     justify-content: center;
 }
 
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    width: 900px;
+}
+
 p {
     font-size: 40px;
     font-weight: bold;
@@ -19,6 +25,7 @@ p {
     font-size: 20px;
     border-radius: 5px;
     padding: 5px, 10px;
+
 }
 
 .btn:hover {
@@ -39,4 +46,16 @@ p {
     font-size: 20px;
     color: gray;
     
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        font-size: 20px;
+    }
 }
