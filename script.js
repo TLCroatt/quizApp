@@ -3,9 +3,14 @@ var answerButton = document.querySelector(".answer-buttons");
 var questionContainer = document.getElementById("question-container");
 var questionElement = document.getElementById("question");
 var answerButtonsElement = document.querySelector(".answer-buttons");
+var choiceAElement = document.getElementById("A");
+var choiceBElement = document.getElementById("B");
+var choiceCElement = document.getElementById("C");
+var choiceDElement = document.getElementById("D");
 var currentQuestionIndex = 0;
 
-let randomQuestion
+let score = 0;
+//let randomQuestion
 
 questionContainer.classList.add("hide");
 
@@ -19,6 +24,7 @@ let questions = [
         correct: "A"   
     },
 
+    
 ];
 
 startButton.addEventListener("click", startQuiz);
@@ -40,10 +46,10 @@ let lastQuestionIndex = questions.length - 1;
 function showQuestion() {
     var q = questions[currentQuestionIndex];
     question.innerText = q.question;
-    choiceA.innerText = q.choiceA;
-    choiceB.innerText = q.choiceB;
-    choiceC.innerText = q.choiceC;
-    choiceD.innerText = q.choiceD;
+    choiceAElement.innerText = q.choiceA;
+    choiceBElement.innerText = q.choiceB;
+    choiceCElement.innerText = q.choiceC;
+    choiceDElement.innerText = q.choiceD;
 }
 
 function selectAnswer(answer) {
@@ -52,10 +58,10 @@ function selectAnswer(answer) {
         console.log(event.target.id);
     }
     if (questions[currentQuestionIndex].correct == answer) {
-        score ++
+        //score ++
         alert("Correct!")
     } else {
-        score -1
+        //score -1
         alert("Wrong!")
         //wrong - dock time/score
     }
