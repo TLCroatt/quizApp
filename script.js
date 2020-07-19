@@ -10,8 +10,6 @@ var choiceDElement = document.getElementById("D");
 var currentQuestionIndex = 0;
 
 let score = 0;
-//let randomQuestion
-
 
 let questions = [
     {
@@ -59,7 +57,6 @@ answerButton.addEventListener("click", selectAnswer);
 function startQuiz() {
     console.log("Started")
     startButton.classList.add("hide");
-    //randomQuestion = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainer.style.display = "block";
     showQuestion();
@@ -100,5 +97,7 @@ function selectAnswer(answer) {
 }
 
 function endGame() {
-
+    //render score
+    //input field for name and score
+    //local storage to record scores
 }
