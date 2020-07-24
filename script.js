@@ -12,6 +12,7 @@ var finalScore = document.getElementById("finalScore");
 var currentQuestionIndex = 0;
 var startingTime = 90;
 var timerDisplay = document.querySelector(".timerDisplay");
+var timer;
 
 playerInput.style.display = "none";
 
@@ -70,7 +71,7 @@ function startQuiz() {
     function startTimer() {
         startingTime = 60;
   
-        var timer = setInterval(function() {
+        timer = setInterval(function() {
           console.log(startingTime);
           timerDisplay.textContent = startingTime;
           startingTime--;
@@ -107,6 +108,7 @@ function selectAnswer(answer) {
         score -1
         alert("Wrong!")
         //dock time/score
+        //timer = timer - 5
     }
     if (currentQuestionIndex < lastQuestionIndex) {
         count = 0;
@@ -117,9 +119,9 @@ function selectAnswer(answer) {
     }
 }
 
-//function stopTimer() {
-    //clearInterval(timer);
-//}  
+function stopTimer() {
+    clearInterval(timer);
+}  
 
 const form = document.getElementById("nameInput");
 const ul = document.getElementById("highScores");
@@ -139,7 +141,7 @@ save.addEventListener("click", function(e) {
 })
 
 function endGame() {
-    //stopTimer();
+    stopTimer();
     questionContainer.style.display = "none";
     timerDisplay.style.display = "none";
     playerInput.style.display = "block";
