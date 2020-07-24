@@ -7,9 +7,13 @@ var choiceAElement = document.getElementById("A");
 var choiceBElement = document.getElementById("B");
 var choiceCElement = document.getElementById("C");
 var choiceDElement = document.getElementById("D");
+var playerInput = document.querySelector(".input");
+var finalScore = document.getElementById("finalScore");
 var currentQuestionIndex = 0;
 var startingTime = 90;
 var timerDisplay = document.querySelector(".timerDisplay");
+
+playerInput.style.display = "none";
 
 let score = 0;
 
@@ -64,7 +68,7 @@ function startQuiz() {
     questionContainer.style.display = "block";
     showQuestion();
     function startTimer() {
-        startingTime = 90;
+        startingTime = 60;
   
         var timer = setInterval(function() {
           console.log(startingTime);
@@ -74,8 +78,7 @@ function startQuiz() {
                 clearInterval(timer);
             }
         },1000);
-      //create an html element to display timer
-        
+      
     
     }
     startTimer();
@@ -114,9 +117,34 @@ function selectAnswer(answer) {
     }
 }
 
-function endGame() {
-    //render score
+//function stopTimer() {
+    //clearInterval(timer);
+//}  
 
-    //input field for name and score
+const form = document.getElementById("nameInput");
+const ul = document.getElementById("highScores");
+const save = document.getElementById("saveBtn");
+const input = document.getElementById("name");
+
+function liMaker(text) {
+    const li = document.createElement("li");
+    li.textContent = text;
+    ul.appendChild(li);
+}
+
+save.addEventListener("click", function(e) {
+    e.preventDefault();
+    liMaker(input.value);
+    input.value = "";
+})
+
+function endGame() {
+    //stopTimer();
+    questionContainer.style.display = "none";
+    timerDisplay.style.display = "none";
+    playerInput.style.display = "block";
+    //render score
+    finalScore.innerHTML = "Your Score: " + score;
     //local storage to record scores
+    liMaker();
 }
