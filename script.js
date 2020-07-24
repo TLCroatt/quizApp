@@ -8,6 +8,8 @@ var choiceBElement = document.getElementById("B");
 var choiceCElement = document.getElementById("C");
 var choiceDElement = document.getElementById("D");
 var currentQuestionIndex = 0;
+var startingTime = 90;
+var timerDisplay = document.querySelector(".timerDisplay");
 
 let score = 0;
 
@@ -52,6 +54,7 @@ let questions = [
 
 startButton.addEventListener("click", startQuiz);
 answerButton.addEventListener("click", selectAnswer);
+    //console.log
 
 
 function startQuiz() {
@@ -60,7 +63,22 @@ function startQuiz() {
     currentQuestionIndex = 0;
     questionContainer.style.display = "block";
     showQuestion();
-    function startTimer() {}
+    function startTimer() {
+        startingTime = 90;
+  
+        var timer = setInterval(function() {
+          console.log(startingTime);
+          timerDisplay.textContent = startingTime;
+          startingTime--;
+            if (startingTime < 0) {
+                clearInterval(timer);
+            }
+        },1000);
+      //create an html element to display timer
+        
+    
+    }
+    startTimer();
 }
 
 let lastQuestionIndex = questions.length - 1;
@@ -79,13 +97,13 @@ function selectAnswer(answer) {
     if (event.target.id === 0 || event.target.id) {
         console.log(event.target.id);
     }
-    if (answer == questions[currentQuestionIndex].correct) {
-        //score ++
+    if (answer.target.id == questions[currentQuestionIndex].correct) {
+        score ++
         alert("Correct!")
     } else {
-        //score -1
+        score -1
         alert("Wrong!")
-        //wrong - dock time/score
+        //dock time/score
     }
     if (currentQuestionIndex < lastQuestionIndex) {
         count = 0;
@@ -98,6 +116,7 @@ function selectAnswer(answer) {
 
 function endGame() {
     //render score
+
     //input field for name and score
     //local storage to record scores
 }
