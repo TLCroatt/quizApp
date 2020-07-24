@@ -149,4 +149,19 @@ function endGame() {
     finalScore.innerHTML = "Your Score: " + score;
     //local storage to record scores
     liMaker();
+    //create empty array to hold localStorage
+    var highScoresArray = []
+    localStorage.setItem("highScores", JSON.stringify(highScoresArray));
+    const data = JSON.parse(localStorage.getItem("highScores"));
+    save.addEventListener("click", function(e) {
+        e.preventDefault()
+        highScoresArray.push(input.value);
+        localStorage.setItem("highScore", JSON.stringify("highScoresArray"));
+        data.forEach((name) => {
+            liMaker(name);
+        });
+
+    })
+    
+    
 }
