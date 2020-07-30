@@ -134,8 +134,8 @@ function liMaker(text) {
     ul.appendChild(li);
 }
 
-save.addEventListener("click", function(e) {
-    e.preventDefault();
+save.addEventListener("click", function(event) {
+    event.preventDefault();
     liMaker(input.value);
     input.value = "";
 })
@@ -153,10 +153,11 @@ function endGame() {
     var highScoresArray = []
     localStorage.setItem("highScores", JSON.stringify(highScoresArray));
     const data = JSON.parse(localStorage.getItem("highScores"));
-    save.addEventListener("click", function(e) {
-        e.preventDefault()
-        highScoresArray.push(input.value);
-        localStorage.setItem("highScore", JSON.stringify("highScoresArray"));
+    save.addEventListener("click", function(event) {
+        event.preventDefault()
+        //const newScore = "name, value";
+        highScoresArray.push(input);
+        localStorage.setItem("highScores", JSON.stringify("highScoresArray"));
         data.forEach((name) => {
             liMaker(name);
         });
